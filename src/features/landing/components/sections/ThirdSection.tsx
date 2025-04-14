@@ -106,12 +106,11 @@ const ThirdSection = () => {
             <motion.button
               key={item.name}
               onClick={() => setActiveIndex(index)}
-              className="w-[84px] h-[84px] flex items-center justify-center"
+              className="w-[84px] h-[84px] flex items-center justify-center cursor-pointer"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={defaultViewport}
               transition={{ delay: 0.2 + index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
             >
               {index === activeIndex ? (
                 <Ring>

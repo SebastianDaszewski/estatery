@@ -22,9 +22,9 @@ const FirstSection = () => {
           layout="fill"
           objectFit="cover"
         />
-        <div className="absolute max-md:gap-y-10 inset-0 flex flex-col justify-center items-center md:items-start p-4 md:p-12 z-10">
+        <div className="absolute max-md:gap-y-10 inset-0 flex flex-col justify-center items-center md:items-start p-4 md:p-12 z-10 w-full">
           <motion.h1
-            className="text-4xl md:text-6.5xl tracking--1 leading-1.1 font-bold text-center md:text-left text-black mb-4 w-3/4"
+            className="text-4xl md:text-6.5xl tracking--1 leading-1.1 font-bold text-center md:text-left text-black mb-4 w-full"
             variants={variants.text}
             initial="hidden"
             whileInView="visible"
@@ -58,7 +58,7 @@ const FirstSection = () => {
             ))}
           </motion.div>
           <motion.div
-            className="w-2/3 lg:w-1/2 mb-8"
+            className="w-2/3 xl:w-1/2 mb-8"
             variants={variants.statsContainer}
             initial="hidden"
             whileInView="visible"
@@ -67,7 +67,7 @@ const FirstSection = () => {
           >
             <div className="flex gap-4">
               <motion.div
-                className="flex gap-4 w-full lg:w-1/2"
+                className="flex gap-4 w-full"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
