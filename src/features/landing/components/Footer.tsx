@@ -5,24 +5,27 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from "@/icons";
-import { socialMediaData, footerLinks } from "./data";
+import { footerLinks } from "./data";
 
 const Footer = () => {
-  const getIconComponent = (type: string) => {
-    switch (type) {
-      case "facebook":
-        return <FacebookIcon />;
-      case "instagram":
-        return <InstagramIcon />;
-      case "twitter":
-        return <TwitterIcon />;
-      case "linkedin":
-        return <LinkedInIcon />;
-      default:
-        return null;
-    }
-  };
-
+  const socialMedia = [
+    {
+      icon: <FacebookIcon />,
+      link: "https://www.facebook.com",
+    },
+    {
+      icon: <InstagramIcon />,
+      link: "https://www.instagram.com",
+    },
+    {
+      icon: <TwitterIcon />,
+      link: "https://www.twitter.com",
+    },
+    {
+      icon: <LinkedInIcon />,
+      link: "https://www.linkedin.com",
+    },
+  ];
   return (
     <nav className="w-full px-20 md:px-10 py-4 bg-white">
       <div className="bg-white flex max-md:flex-col items-start md:items-center max-md:h-auto md:h-24 w-full md:justify-between">
@@ -62,18 +65,11 @@ const Footer = () => {
           ©2021 Estatery. All rights reserved
         </div>
         <div className="flex items-center justify-center max-md:w-full md:w-1/5 max-lg:w-1/2 max-md:my-4">
-          <div className="social-icons">
-            {socialMediaData.map((item, index) => (
-              <a
-                key={index}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {getIconComponent(item.type)}
-              </a>
-            ))}
-          </div>
+          {socialMedia.map((item) => (
+            <a className="opacity-50 mx-3" href={item.link} key={item.link}>
+              {item.icon}
+            </a>
+          ))}
         </div>
       </div>
     </nav>
