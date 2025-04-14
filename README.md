@@ -1,24 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Estatery - Recruitment Project
+
+This is a recruitment project built with [Next.js](https://nextjs.org), showcasing a real estate website.
 
 ## Getting Started
 
-First, run the development server:
+1. First, install the dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Then, run the development server:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Features
+
+- Responsive layout working on mobile and desktop devices
+- UI element animations using Framer Motion
+- Toggle between property types (houses and apartments)
+- Interactive components (cards, carousel, toggles)
+- Customer testimonials section
+- Mobile menu with smooth animations
+
+## Technologies
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- DaisyUI
+
+## Project Structure
+
+The project is organized according to the Feature Folder Pattern principles, allowing for easy extension and maintenance.
 
 ## Learn More
 

@@ -2,9 +2,7 @@
 
 import React, { createContext, useContext, ReactNode } from "react";
 
-// Definicje wariantów animacji
 const animationVariants = {
-  // Warianty dla tekstu - każde słowo pojawia się po kolei
   text: {
     hidden: { opacity: 0 },
     visible: {
@@ -15,7 +13,6 @@ const animationVariants = {
     },
   },
 
-  // Warianty dla pojedynczego słowa
   word: {
     hidden: { opacity: 0, y: 5 },
     visible: {
@@ -28,7 +25,6 @@ const animationVariants = {
     },
   },
 
-  // Warianty dla kontenera statystyk
   statsContainer: {
     hidden: { opacity: 0 },
     visible: {
@@ -39,7 +35,6 @@ const animationVariants = {
     },
   },
 
-  // Warianty dla pojedynczego elementu statystyki
   statItem: {
     hidden: { opacity: 0, x: -20 },
     visible: {
@@ -52,7 +47,6 @@ const animationVariants = {
     },
   },
 
-  // Warianty dla elementów pojawiających się od dołu
   fadeInUp: {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -67,26 +61,21 @@ const animationVariants = {
   },
 };
 
-// Typ dla kontekstu
 type AnimationContextType = {
   variants: typeof animationVariants;
   defaultViewport: { once: boolean; amount: number };
   splitTextIntoWords: (text: string) => string[];
 };
 
-// Tworzenie kontekstu
 const AnimationContext = createContext<AnimationContextType | null>(null);
 
-// Provider komponent
 export const AnimationProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  // Pomocnicza funkcja do dzielenia tekstu na słowa
   const splitTextIntoWords = (text: string): string[] => {
     return text.split(" ");
   };
 
-  // Wartość kontekstu
   const value = {
     variants: animationVariants,
     defaultViewport: { once: true, amount: 0.1 },
@@ -100,7 +89,6 @@ export const AnimationProvider: React.FC<{ children: ReactNode }> = ({
   );
 };
 
-// Hook do używania animacji w komponentach
 export const useAnimation = (): AnimationContextType => {
   const context = useContext(AnimationContext);
   if (!context) {

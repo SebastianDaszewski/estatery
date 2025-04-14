@@ -1,6 +1,5 @@
 import Image from "next/legacy/image";
-import Card from "@/components/Card";
-import StatItem from "@/components/StatItem";
+import { Card, StatItem } from "@/components";
 import { motion } from "framer-motion";
 import { useAnimation } from "@/context/AnimationContext";
 
@@ -23,9 +22,9 @@ const FirstSection = () => {
           layout="fill"
           objectFit="cover"
         />
-        <div className="absolute inset-0 flex flex-col md:justify-center items-center md:items-start p-4 md:p-12 z-10">
+        <div className="absolute max-md:gap-y-10 inset-0 flex flex-col justify-center items-center md:items-start p-4 md:p-12 z-10">
           <motion.h1
-            className="text-4xl md:text-6.5xl tracking--1 leading-1.1 font-bold text-center md:text-left text-black mb-4 w-5/6 md:w-3/4"
+            className="text-4xl md:text-6.5xl tracking--1 leading-1.1 font-bold text-center md:text-left text-black mb-4 w-3/4"
             variants={variants.text}
             initial="hidden"
             whileInView="visible"
@@ -42,7 +41,7 @@ const FirstSection = () => {
             ))}
           </motion.h1>
           <motion.div
-            className="text-xl leading-1.6 tracking--0.5 text-black mb-8 w-5/6 md:w-2/4 text-center md:text-left"
+            className="text-xl leading-1.6 tracking--0.5 text-black mb-8 w-5/6 md:w-3/4 text-center md:text-left"
             variants={variants.text}
             initial="hidden"
             whileInView="visible"
@@ -68,7 +67,7 @@ const FirstSection = () => {
           >
             <div className="flex gap-4">
               <motion.div
-                className="flex gap-4 w-2/3 lg:w-1/2 mb-8"
+                className="flex gap-4 w-full lg:w-1/2"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}

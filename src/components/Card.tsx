@@ -1,5 +1,7 @@
 import clsx from "clsx";
 import { ApartmentsIcon, HousesIcon } from "@/icons";
+import Heart from "@/components/Heart";
+import Image from "next/image";
 
 export type CardProps = {
   id: number;
@@ -23,22 +25,30 @@ const Card = ({
   variant = "mapView",
 }: CardProps) => {
   return (
-    <div className={clsx("card bg-white relative", width, height, "shadow-sm")}>
-      <figure className="pb-6 overflow-visible">
-        <img
+    <div
+      className={clsx(
+        "card hover:shadow-md bg-white border-borderLight border-1 relative",
+        width,
+        height
+      )}
+    >
+      <figure>
+        <Image
           src={image}
           alt="house"
           className="w-full h-[200px] object-cover rounded-t-lg"
+          width={360}
+          height={200}
         />
         {variant !== "mapView" && (
-          <div className="absolute -left-2 top-[51%]">
+          <div className="absolute -left-2 top-[45%] sm:top-[48%] md:top-[51%] lg:top-[52%]">
             {variant === "house" ? <HousesIcon /> : <ApartmentsIcon />}
           </div>
         )}
       </figure>
       <div
         className={clsx(
-          variant !== "mapView" ? "p-2" : "card-body",
+          variant !== "mapView" && "card-body",
           variant === "mapView" && "p-2 md:card-body"
         )}
       >
@@ -49,23 +59,26 @@ const Card = ({
             variant === "mapView" && "gap-y-2 md:gap-y-5"
           )}
         >
-          <h2 className="flex items-center gap-0.5">
-            <span
-              className={clsx(
-                "card-title text-2xl leading-1.5 font-bold text-primary tracking--1",
-                variant === "mapView" && "text-sm sm:text-lg md:text-2xl"
-              )}
-            >
-              {price}
-            </span>
-            <span
-              className={clsx(
-                "text-sm leading-1.4 text-black opacity-50",
-                variant === "mapView" && "text-xs md:text-sm"
-              )}
-            >
-              /month
-            </span>
+          <h2 className="flex items-center gap-0.5 justify-between">
+            <div className="flex">
+              <span
+                className={clsx(
+                  "card-title text-2xl leading-1.5 font-bold text-primary tracking--1",
+                  variant === "mapView" && "text-sm sm:text-lg md:text-2xl"
+                )}
+              >
+                {price}
+              </span>
+              <span
+                className={clsx(
+                  "text-sm leading-1.4 text-black opacity-50",
+                  variant === "mapView" && "text-xs md:text-sm"
+                )}
+              >
+                /month
+              </span>
+            </div>
+            <Heart />
           </h2>
           <span
             className={clsx(

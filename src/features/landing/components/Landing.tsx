@@ -1,29 +1,32 @@
 "use client";
 import { useState, useEffect } from "react";
 
-import FirstSection from "./sections/FirstSection";
-import SecondSection from "./sections/SecondSection";
-import ThirdSection from "./sections/ThirdSection";
-import { Topbar, Footer } from "@/features/signOutLayout/components";
-import Button from "@/components/Button";
+import {
+  Topbar,
+  FirstSection,
+  SecondSection,
+  ThirdSection,
+  Footer,
+} from "@/features/landing/components";
+import { Button } from "@/components";
 import { XIcon } from "@/icons";
+import { landingLinks } from "./data";
 
 const Landing = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const links = ["Rent", "Buy", "Sell", "Manage Properties", "Resources"];
+  const closeMenuDirectly = () => {
+    document.body.style.overflow = "auto";
+    setIsMenuOpen(false);
+  };
 
-  // Dodaj efekt, który wyłącza przewijanie gdy menu jest otwarte
   useEffect(() => {
     if (isMenuOpen) {
-      // Wyłącz przewijanie
       document.body.style.overflow = "hidden";
     } else {
-      // Włącz przewijanie z powrotem
       document.body.style.overflow = "auto";
     }
 
-    // Sprzątanie przy odmontowaniu (na wszelki wypadek)
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -36,26 +39,39 @@ const Landing = () => {
       }
     };
 
-    // Dodaj nasłuchiwanie na zmianę rozmiaru okna
     window.addEventListener("resize", handleResize);
 
-    // Wywołaj funkcję raz przy montowaniu, żeby sprawdzić początkowy rozmiar
     handleResize();
 
-    // Sprzątanie po odmontowaniu komponentu
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
+  useEffect(() => {
+    const handleXClick = () => {
+      const xButton = document.querySelector(".x-button");
+      if (xButton) {
+        xButton.addEventListener("click", closeMenuDirectly);
+      }
+    };
+
+    if (isMenuOpen) {
+      setTimeout(handleXClick, 100);
+    }
+
+    return () => {
+      const xButton = document.querySelector(".x-button");
+      if (xButton) {
+        xButton.removeEventListener("click", closeMenuDirectly);
+      }
+    };
+  }, [isMenuOpen]);
+
   return (
     <div className="relative">
       <div className={isMenuOpen ? "blur-lg bg-white" : ""}>
-        <Topbar
-          links={links}
-          isMenuOpen={isMenuOpen}
-          setIsMenuOpen={setIsMenuOpen}
-        />
+        <Topbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         <FirstSection />
         <SecondSection />
         <ThirdSection />
@@ -63,13 +79,10 @@ const Landing = () => {
       </div>
       {isMenuOpen && (
         <div className="fixed inset-0 top-0 pt-24 space-y-8 px-5 overflow-hidden">
-          <button
-            className="absolute top-10 right-7"
-            onClick={() => setIsMenuOpen(false)}
-          >
+          <div className="absolute top-10 right-7 x-button">
             <XIcon />
-          </button>
-          {links.map((link) => (
+          </div>
+          {landingLinks.map((link) => (
             <div
               className="text-2xl leading-1.5 font-medium text-black p-4"
               key={link}

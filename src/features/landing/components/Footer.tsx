@@ -5,27 +5,24 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from "@/icons";
+import { socialMediaData, footerLinks } from "./data";
 
 const Footer = () => {
-  const links = ["help center", "faq", "terms & privacy"];
-  const socialMedia = [
-    {
-      icon: <FacebookIcon />,
-      link: "https://www.facebook.com",
-    },
-    {
-      icon: <InstagramIcon />,
-      link: "https://www.instagram.com",
-    },
-    {
-      icon: <TwitterIcon />,
-      link: "https://www.twitter.com",
-    },
-    {
-      icon: <LinkedInIcon />,
-      link: "https://www.linkedin.com",
-    },
-  ];
+  const getIconComponent = (type: string) => {
+    switch (type) {
+      case "facebook":
+        return <FacebookIcon />;
+      case "instagram":
+        return <InstagramIcon />;
+      case "twitter":
+        return <TwitterIcon />;
+      case "linkedin":
+        return <LinkedInIcon />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <nav className="w-full px-20 md:px-10 py-4 bg-white">
       <div className="bg-white flex max-md:flex-col items-start md:items-center max-md:h-auto md:h-24 w-full md:justify-between">
@@ -35,20 +32,20 @@ const Footer = () => {
         <div className="md:flex md:flex-row md:justify-between md:w-1/2 xl:w-1/3 max-md:w-full">
           <div className="max-md:flex max-md:justify-between max-md:w-full md:hidden">
             <div className="text-base font-medium text-black opacity-50 leading-1.6 whitespace-nowrap">
-              {links[0].toUpperCase()}
+              {footerLinks[0].toUpperCase()}
             </div>
             <div className="text-base font-medium text-black opacity-50 leading-1.6 whitespace-nowrap">
-              {links[1].toUpperCase()}
+              {footerLinks[1].toUpperCase()}
             </div>
           </div>
           <div className="max-md:flex max-md:justify-center max-md:w-full max-md:mt-8 md:hidden">
             <div className="text-base font-medium text-black opacity-50 leading-1.6 whitespace-nowrap">
-              {links[2].toUpperCase()}
+              {footerLinks[2].toUpperCase()}
             </div>
           </div>
 
           <div className="hidden md:flex md:justify-between md:w-full">
-            {links.map((link) => (
+            {footerLinks.map((link) => (
               <div
                 className="text-base font-medium text-black opacity-50 leading-1.6 whitespace-nowrap"
                 key={link}
@@ -65,11 +62,18 @@ const Footer = () => {
           ©2021 Estatery. All rights reserved
         </div>
         <div className="flex items-center justify-center max-md:w-full md:w-1/5 max-lg:w-1/2 max-md:my-4">
-          {socialMedia.map((item) => (
-            <a className="opacity-50 mx-3" href={item.link} key={item.link}>
-              {item.icon}
-            </a>
-          ))}
+          <div className="social-icons">
+            {socialMediaData.map((item, index) => (
+              <a
+                key={index}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {getIconComponent(item.type)}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </nav>

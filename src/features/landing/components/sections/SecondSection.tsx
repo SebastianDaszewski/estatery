@@ -2,66 +2,14 @@
 
 import { useState } from "react";
 import clsx from "clsx";
-import Card from "@/components/Card";
-import Carousel from "@/components/Carousel";
-import { CardProps } from "@/components/Card";
+import { Card, Carousel } from "@/components";
 import { motion } from "framer-motion";
 import { useAnimation } from "@/context/AnimationContext";
+import { housesData } from "../data";
 
 const SecondSection = () => {
   const [activeTab, setActiveTab] = useState<"houses" | "apartments">("houses");
   const { variants, defaultViewport, splitTextIntoWords } = useAnimation();
-
-  const mockData: CardProps[] = [
-    {
-      id: 1,
-      price: "$2,140",
-      title: "Tarpon Bay",
-      address: "103 Lake Shores, Michigan, IN",
-      type: "apartment" as const,
-      image: "/images/apartment-1.jpg",
-    },
-    {
-      id: 2,
-      price: "$1,450",
-      title: "Cove Red",
-      address: "243 Curlew Road, Palm Harbor, TX",
-      type: "apartment" as const,
-      image: "/images/apartment-2.jpg",
-    },
-    {
-      id: 3,
-      price: "$3,850",
-      title: "Beverly Springfield",
-      address: "2821 Lake Sevilla, Palm Harbor, TX",
-      type: "apartment" as const,
-      image: "/images/apartment-3.jpg",
-    },
-    {
-      id: 4,
-      price: "$3,440",
-      title: "Palm Harbor",
-      address: "2699 Green Valley, Highland Lake, FL",
-      type: "house" as const,
-      image: "/images/house-1.jpg",
-    },
-    {
-      id: 5,
-      price: "$6,550",
-      title: "St. Crystal",
-      address: "210 US Highway, Highland Lake, FL",
-      type: "house" as const,
-      image: "/images/house-2.jpg",
-    },
-    {
-      id: 6,
-      price: "$4,950",
-      title: "Faulkner Ave",
-      address: "909 Woodland St, Michigan, IN",
-      image: "/images/house-3.jpg",
-      type: "house" as const,
-    },
-  ];
 
   const headingWords = splitTextIntoWords(
     "We make it easy for houses and apartments."
@@ -119,7 +67,6 @@ const SecondSection = () => {
             </motion.span>
           ))}
         </motion.h2>
-
         <motion.div
           className="text-base leading-1.6 text-customGray font-medium text-center w-full md:w-2/3 lg:w-1/2 mx-auto"
           variants={variants.text}
@@ -139,7 +86,7 @@ const SecondSection = () => {
           ))}
         </motion.div>
         <div className="max-lg:hidden flex items-center justify-center gap-6">
-          {mockData
+          {housesData
             .filter((item) =>
               activeTab === "houses"
                 ? item.type === "house"
@@ -154,7 +101,7 @@ const SecondSection = () => {
             ))}
         </div>
         <div className="lg:hidden flex items-center justify-center">
-          <Carousel activeTab={activeTab} data={mockData} />
+          <Carousel activeTab={activeTab} data={housesData} />
         </div>
       </div>
     </div>

@@ -1,25 +1,20 @@
 "use client";
-import { useState } from "react";
-import Logo from "@/components/Logo";
-import Button from "@/components/Button";
+
+import { Logo, Button } from "@/components";
 import HamburgerIcon from "@/icons/HamburgerIcon";
+import { landingLinks } from "./data";
 
 type TopbarProps = {
   setIsMenuOpen: (isMenuOpen: boolean) => void;
   isMenuOpen: boolean;
-  links: string[];
 };
 
-const Topbar: React.FC<TopbarProps> = ({
-  setIsMenuOpen,
-  isMenuOpen,
-  links,
-}) => {
+const Topbar: React.FC<TopbarProps> = ({ setIsMenuOpen, isMenuOpen }) => {
   return (
     <div className="bg-white flex max-md:justify-between items-center max-lg:px-5 max-lg:py-2 px-10 py-4 h-24">
       <Logo />
       <div className="flex flex-grow items-center justify-center gap-14 max-lg:gap-3 max-md:hidden">
-        {links.map((link) => (
+        {landingLinks.map((link) => (
           <div className="text-base font-medium text-black" key={link}>
             {link}
           </div>

@@ -1,44 +1,22 @@
+"use client";
+
 import Image from "next/image";
 import { useState } from "react";
-import Ring from "@/icons/Ring";
 import { motion } from "framer-motion";
+import { testimonialsData } from "../data";
+import Ring from "@/icons/Ring";
 import { useAnimation } from "@/context/AnimationContext";
-
-const mockData = [
-  {
-    name: "Mira Culos",
-    image: "/images/avatar-1.jpg",
-    role: "Renter",
-    testimonial:
-      "“Estatery is the platform I go to on almost a daily basis for 2nd home and vacation condo shopping, or to just look at dream homes in new areas. Thanks for fun home shopping and comparative analyzing, Estatery!”",
-  },
-  {
-    name: "Mark Brown",
-    image: "/images/avatar-2.jpg",
-    role: "Renter",
-    testimonial:
-      "“I check Estatery almost every day — whether I'm seriously house hunting or just daydreaming about future getaways. It makes exploring new locations and comparing properties incredibly easy and enjoyable.”",
-  },
-  {
-    name: "Jake White",
-    image: "/images/avatar-3.jpg",
-    role: "Renter",
-    testimonial:
-      "“Estatery turns home shopping into a daily delight. Whether I'm planning for the future or just exploring what's out there, I always find something exciting and new.”",
-  },
-];
 
 const ThirdSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const { variants, defaultViewport, splitTextIntoWords } = useAnimation();
 
-  // Dzielę teksty na słowa
   const titleWords = splitTextIntoWords("Testimonials");
   const subtitleWords = splitTextIntoWords(
     "See what our property managers, landlords, and tenants have to say"
   );
   const testimonialWords = splitTextIntoWords(
-    mockData[activeIndex].testimonial
+    testimonialsData[activeIndex].testimonial
   );
 
   return (
@@ -116,16 +94,15 @@ const ThirdSection = () => {
             transition={{ delay: 0.5, duration: 0.3 }}
           >
             <span className="font-bold text-base text-black">
-              {mockData[activeIndex].name},
+              {testimonialsData[activeIndex].name},
             </span>
             <span className="text-black font-normal opacity-50">
-              {mockData[activeIndex].role}
+              {testimonialsData[activeIndex].role}
             </span>
           </motion.div>
         </div>
-
         <div className="absolute bottom-6 flex gap-8">
-          {mockData.map((item, index) => (
+          {testimonialsData.map((item, index) => (
             <motion.button
               key={item.name}
               onClick={() => setActiveIndex(index)}
