@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { AnimationProvider } from "@/context/AnimationContext";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -20,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={plusJakartaSans.variable}>
       <body className={`${plusJakartaSans.className} antialiased`}>
-        {children}
+        <AnimationProvider>{children}</AnimationProvider>
       </body>
     </html>
   );

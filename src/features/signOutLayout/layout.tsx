@@ -8,12 +8,9 @@ type SignOutLayoutProps = {
 
 const SignOutLayout: React.FC<SignOutLayoutProps> = ({ children }) => {
   return (
-    <section className="flex h-full flex-col">
-      <div className="flex-grow">
-        <Topbar />
-        <div className="h-content-container">{children}</div>
-      </div>
-      <div className="relative w-full h-20 bg-customGray flex items-center justify-center tall:absolute tall:bottom-0">
+    <section className="flex flex-col min-h-screen">
+      <main className="flex-grow">{children}</main>
+      <div className="w-full flex items-center justify-center shrink-0">
         <Footer />
       </div>
     </section>
