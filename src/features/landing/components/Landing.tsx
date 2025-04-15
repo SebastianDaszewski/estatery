@@ -9,7 +9,7 @@ import {
   ThirdSection,
   Footer,
 } from "@/features/landing/components";
-import Menu from "@/components/Menu";
+import { Menu } from "@/components";
 
 const Landing = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
