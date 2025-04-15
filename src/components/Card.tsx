@@ -46,7 +46,7 @@ const Card = ({
           height={200}
         />
         {variant !== "mapView" && (
-          <div className="absolute -left-2 top-[45%] xs:top-[47%] 0.5sm:top-[49%] sm:top-[50%] md:top-[51%] lg:top-[52%]">
+          <div className="absolute -left-2 top-[49%] sm:top-[50%] md:top-[51%] xl:top-[49%]">
             {variant === "house" ? <HousesIcon /> : <ApartmentsIcon />}
           </div>
         )}
@@ -99,7 +99,8 @@ const Card = ({
           <span
             className={clsx(
               "font-medium text-black opacity-50",
-              variant !== "mapView" && "lg:text-sm xl:text-base",
+              variant !== "mapView" &&
+                "max-0.5sm:text-xs lg:text-sm xl:text-base",
               variant === "mapView" &&
                 "text-4xs xs:text-3xs sm:text-xs md:text-base"
             )}
