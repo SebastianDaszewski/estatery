@@ -8,7 +8,7 @@ type CarouselProps = {
 
 const Carousel = ({ data, activeTab }: CarouselProps) => {
   return (
-    <div className="carousel carousel-center bg-white rounded-box p-4 w-full sm:w-3/4 md:w-2/3 gap-6">
+    <div className="carousel carousel-center bg-white rounded-box p-4 w-full 0.5sm:w-3/4 md:w-2/3 gap-6">
       {data
         .filter((item) =>
           activeTab === "houses"

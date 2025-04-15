@@ -36,12 +36,17 @@ const Card = ({
         <Image
           src={image}
           alt="house"
-          className="w-full h-[100px] 0.5sm:h-[125px] sm:h-[150px] md:h-[200px] object-cover rounded-t-lg"
+          className={clsx(
+            variant !== "mapView" &&
+              "w-full h-[200px] object-cover rounded-t-lg",
+            variant === "mapView" &&
+              "h-[100px] 0.5sm:h-[125px] sm:h-[150px] md:h-[200px]"
+          )}
           width={360}
           height={200}
         />
         {variant !== "mapView" && (
-          <div className="absolute -left-2 top-[45%] md:top-[51%] lg:top-[52%]">
+          <div className="absolute -left-2 top-[45%] xs:top-[47%] 0.5sm:top-[49%] sm:top-[50%] md:top-[51%] lg:top-[52%]">
             {variant === "house" ? <HousesIcon /> : <ApartmentsIcon />}
           </div>
         )}
@@ -79,7 +84,7 @@ const Card = ({
                 /month
               </span>
             </div>
-            <div className={clsx("hidden", variant === "mapView")}>
+            <div className={clsx(variant === "mapView" && "hidden")}>
               <Heart />
             </div>
           </h2>
@@ -94,7 +99,7 @@ const Card = ({
           <span
             className={clsx(
               "font-medium text-black opacity-50",
-              variant !== "mapView" && "max-md:text-sm text-base",
+              variant !== "mapView" && "lg:text-sm xl:text-base",
               variant === "mapView" &&
                 "text-4xs xs:text-3xs sm:text-xs md:text-base"
             )}
