@@ -7,34 +7,33 @@ const Heart = () => {
 
   return (
     <button
-      className="border-1 hover:border-primary-hover focus:border-primary-hover focus:border-1.5 focus:outline-none active:bg-primary border-borderLight rounded-full w-12 h-12 flex items-center justify-center relative"
+      className={`border-1 hover:border-primary-hover focus:border-primary-hover focus:border-1.5 focus:outline-none ${
+        isActive ? "bg-primary" : ""
+      } border-borderLight rounded-full w-12 h-12 flex items-center justify-center relative`}
       style={{
         position: "relative",
         zIndex: 1,
+        backgroundColor: isActive ? "#6851FF" : "",
       }}
       onFocus={(e) => {
         if (!e.currentTarget.matches(":active")) {
-          e.currentTarget.style.backgroundColor = "rgba(61, 30, 254, 0.2)";
+          e.currentTarget.style.backgroundColor = isActive
+            ? ""
+            : "rgba(61, 30, 254, 0.2)";
         }
       }}
       onBlur={(e) => {
-        e.currentTarget.style.backgroundColor = "";
+        e.currentTarget.style.backgroundColor = isActive ? "#6851FF" : "";
       }}
-      onMouseDown={() => {
-        setIsActive(true);
-      }}
-      onMouseUp={() => {
-        setIsActive(false);
-      }}
-      onMouseLeave={() => {
-        setIsActive(false);
+      onClick={() => {
+        setIsActive(!isActive);
       }}
     >
       <svg
         width="20"
         height="18"
         viewBox="0 0 20 18"
-        fill="none"
+        fill={isActive ? "#6851FF" : "none"}
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
