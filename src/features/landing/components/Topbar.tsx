@@ -2,6 +2,7 @@
 
 import { Logo, Button } from "@/components";
 import HamburgerIcon from "@/icons/HamburgerIcon";
+
 import { landingLinks } from "./data";
 
 type TopbarProps = {
@@ -32,7 +33,6 @@ const Topbar: React.FC<TopbarProps> = ({ setIsMenuOpen, isMenuOpen }) => {
         className="flex items-center justify-center max-md:block md:hidden"
         onClick={() => {
           setIsMenuOpen(!isMenuOpen);
-          console.log("Menu toggled:", !isMenuOpen);
         }}
       >
         <HamburgerIcon />

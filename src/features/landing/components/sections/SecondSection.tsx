@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import clsx from "clsx";
-import { Card, Carousel } from "@/components";
 import { motion } from "framer-motion";
-import { useAnimation } from "@/context/AnimationContext";
+
 import { housesData } from "../data";
+
+import { Card, Carousel } from "@/components";
+import { useAnimation } from "@/context/AnimationContext";
 
 const SecondSection = () => {
   const [activeTab, setActiveTab] = useState<"houses" | "apartments">("houses");

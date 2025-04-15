@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
+
 import { testimonialsData } from "../data";
+
 import Ring from "@/icons/Ring";
 import { useAnimation } from "@/context/AnimationContext";
 

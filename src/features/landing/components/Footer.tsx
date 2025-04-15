@@ -1,31 +1,34 @@
+import { footerLinks } from "./data";
+
 import Logo from "@/components/Logo";
+
 import {
   FacebookIcon,
   InstagramIcon,
   LinkedInIcon,
   TwitterIcon,
 } from "@/icons";
-import { footerLinks } from "./data";
+
+const socialMedia = [
+  {
+    icon: <FacebookIcon />,
+    link: "https://www.facebook.com",
+  },
+  {
+    icon: <InstagramIcon />,
+    link: "https://www.instagram.com",
+  },
+  {
+    icon: <TwitterIcon />,
+    link: "https://www.twitter.com",
+  },
+  {
+    icon: <LinkedInIcon />,
+    link: "https://www.linkedin.com",
+  },
+];
 
 const Footer = () => {
-  const socialMedia = [
-    {
-      icon: <FacebookIcon />,
-      link: "https://www.facebook.com",
-    },
-    {
-      icon: <InstagramIcon />,
-      link: "https://www.instagram.com",
-    },
-    {
-      icon: <TwitterIcon />,
-      link: "https://www.twitter.com",
-    },
-    {
-      icon: <LinkedInIcon />,
-      link: "https://www.linkedin.com",
-    },
-  ];
   return (
     <nav className="w-full px-20 md:px-10 py-4 bg-white">
       <div className="bg-white flex max-md:flex-col items-start md:items-center max-md:h-auto md:h-24 w-full md:justify-between">

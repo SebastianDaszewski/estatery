@@ -1,6 +1,7 @@
 import Image from "next/legacy/image";
-import { Card, StatItem } from "@/components";
 import { motion } from "framer-motion";
+
+import { Card, StatItem } from "@/components";
 import { useAnimation } from "@/context/AnimationContext";
 
 const FirstSection = () => {

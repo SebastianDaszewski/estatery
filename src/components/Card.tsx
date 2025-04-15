@@ -1,7 +1,8 @@
+import Image from "next/image";
 import clsx from "clsx";
+
 import { ApartmentsIcon, HousesIcon } from "@/icons";
 import Heart from "@/components/Heart";
-import Image from "next/image";
 
 export type CardProps = {
   id: number;
