@@ -15,7 +15,7 @@ const FirstSection = () => {
 
   return (
     <div className="flex flex-col md:flex-row relative bg-white">
-      <div className="relative w-full md:w-1/2 h-[750px]">
+      <div className="relative w-full md:w-1/2 h-[500px] md:h-[750px]">
         <Image
           src="/images/blur-bg.jpg"
           alt="Background"
@@ -84,14 +84,14 @@ const FirstSection = () => {
           </motion.div>
         </div>
       </div>
-      <div className="relative overflow-hidden w-full md:w-1/2 h-[750px]">
+      <div className="relative overflow-hidden w-full md:w-1/2 h-[550px] 0.5sm:h-[650px] sm:h-[700px] md:h-[750px]">
         <Image
           src="/images/map-bg.jpg"
           alt="Background Map"
           layout="fill"
           className="max-md:object-contain max-md:object-right-top max-md:scale-90"
         />
-        <div className="block md:hidden sticky top-1/5  ml-5 sm:ml-5 z-10">
+        <div className="block md:hidden sticky top-1/5 ml-5 sm:ml-5 z-10">
           <Card
             image="/images/apartment-3.jpg"
             title="Beverly Springfield"
