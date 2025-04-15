@@ -47,7 +47,7 @@ const SecondSection = () => {
               }
             )}
           >
-            apartments
+            Apartments
           </button>
         </div>
         <motion.h2

@@ -36,12 +36,12 @@ const Card = ({
         <Image
           src={image}
           alt="house"
-          className="w-full h-[200px] object-cover rounded-t-lg"
+          className="w-full h-[100px] 0.5sm:h-[125px] sm:h-[150px] md:h-[200px] object-cover rounded-t-lg"
           width={360}
           height={200}
         />
         {variant !== "mapView" && (
-          <div className="absolute -left-2 top-[45%] sm:top-[48%] md:top-[51%] lg:top-[52%]">
+          <div className="absolute -left-2 top-[45%] md:top-[51%] lg:top-[52%]">
             {variant === "house" ? <HousesIcon /> : <ApartmentsIcon />}
           </div>
         )}
@@ -49,14 +49,15 @@ const Card = ({
       <div
         className={clsx(
           variant !== "mapView" && "card-body",
-          variant === "mapView" && "p-2 md:card-body"
+          variant === "mapView" && "p-1.5 xs:p-2 0.5sm:p-3 sm:p-4 md:card-body"
         )}
       >
         <div
           className={clsx(
             "flex flex-col",
             variant !== "mapView" && " gap-y-5",
-            variant === "mapView" && "gap-y-2 md:gap-y-5"
+            variant === "mapView" &&
+              "gap-y-0.5 0.5sm:gap-y-1 sm:gap-y-3 md:gap-y-5"
           )}
         >
           <h2 className="flex items-center gap-0.5 justify-between">
@@ -64,7 +65,7 @@ const Card = ({
               <span
                 className={clsx(
                   "card-title text-2xl leading-1.5 font-bold text-primary tracking--1",
-                  variant === "mapView" && "text-sm sm:text-lg md:text-2xl"
+                  variant === "mapView" && "text-xs sm:text-lg md:text-2xl"
                 )}
               >
                 {price}
@@ -72,27 +73,30 @@ const Card = ({
               <span
                 className={clsx(
                   "text-sm leading-1.4 text-black opacity-50",
-                  variant === "mapView" && "text-xs md:text-sm"
+                  variant === "mapView" && "text-2xs sm:text-xs md:text-sm"
                 )}
               >
                 /month
               </span>
             </div>
-            <Heart />
+            <div className={clsx("hidden", variant === "mapView")}>
+              <Heart />
+            </div>
           </h2>
           <span
             className={clsx(
               "text-2xl leading-4.5 md:leading-1.5 font-bold text-black tracking--1",
-              variant === "mapView" && "text-sm sm:text-lg md:text-2xl"
+              variant === "mapView" && "text-xs sm:text-lg md:text-2xl"
             )}
           >
             {title}
           </span>
           <span
             className={clsx(
-              " font-medium text-black opacity-50",
-              variant !== "mapView" && "max-md:text-sm max-sm:mb-4 text-base",
-              variant === "mapView" && "text-2xs sm:text-xs md:text-base"
+              "font-medium text-black opacity-50",
+              variant !== "mapView" && "max-md:text-sm text-base",
+              variant === "mapView" &&
+                "text-4xs xs:text-3xs sm:text-xs md:text-base"
             )}
           >
             {address}

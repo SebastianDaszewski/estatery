@@ -91,7 +91,7 @@ const FirstSection = () => {
           layout="fill"
           className="max-md:object-contain max-md:object-right-top max-md:scale-90"
         />
-        <div className="block md:hidden sticky top-1/5 sm:top-1/4 ml-5 sm:ml-10 z-10">
+        <div className="block md:hidden sticky top-1/5  ml-5 sm:ml-5 z-10">
           <Card
             image="/images/apartment-3.jpg"
             title="Beverly Springfield"
